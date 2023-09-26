@@ -8,7 +8,7 @@ import {
   faArrowRightToBracket,
 } from "@fortawesome/free-solid-svg-icons";
 
-export const NavBar = () => {
+export const NavBar = ({ isAuth }) => {
   return (
     <nav>
       <Link to="/">
@@ -19,10 +19,17 @@ export const NavBar = () => {
         <FontAwesomeIcon icon={faFilePen} />
         記事投稿
       </Link>
-      <Link to="/login">
-        <FontAwesomeIcon icon={faArrowRightToBracket} />
-        Login
-      </Link>
+      {!isAuth ? (
+        <Link to="/login">
+          <FontAwesomeIcon icon={faArrowRightToBracket} />
+          Login
+        </Link>
+      ) : (
+        <Link to="/logout">
+          <FontAwesomeIcon icon={faArrowRightToBracket} />
+          Logout
+        </Link>
+      )}
     </nav>
   );
 };
