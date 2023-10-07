@@ -15,20 +15,23 @@ export const NavBar = ({ isAuth }) => {
         <FontAwesomeIcon icon={faHouse} />
         Home
       </Link>
-      <Link to="/CreatePots">
-        <FontAwesomeIcon icon={faFilePen} />
-        記事投稿
-      </Link>
+
       {!isAuth ? (
         <Link to="/login">
           <FontAwesomeIcon icon={faArrowRightToBracket} />
           Login
         </Link>
       ) : (
-        <Link to="/logout">
-          <FontAwesomeIcon icon={faArrowRightToBracket} />
-          Logout
-        </Link>
+        <>
+          <Link to="/CreatePost">
+            <FontAwesomeIcon icon={faFilePen} />
+            記事投稿
+          </Link>
+          <Link to="/logout">
+            <FontAwesomeIcon icon={faArrowRightToBracket} />
+            Logout
+          </Link>
+        </>
       )}
     </nav>
   );
